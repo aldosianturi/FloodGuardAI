@@ -1,0 +1,140 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* --- Popup Styling --- */
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 280px;
+  z-index: 100; /* Pastikan popup di atas map */
+}
+
+.ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  color: #333;
+}
+
+.ol-popup-closer:after {
+  content: "✖";
+}
+
+/* --- UI Control Styling --- */
+.overlay-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* PENTING: Agar selalu di atas peta */
+  width: 250px;
+  font-family: sans-serif;
+}
+
+.search-container {
+  pointer-events: auto;
+}
+
+.search-container .input-group,
+.search-container input,
+.search-container button {
+  pointer-events: auto;
+}
+.filter-scroll {
+  max-height: 160px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sidebar-scroll-content {
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    top: 82px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    z-index: 120;
+  }
+
+  .map-sidebar {
+    top: auto;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 18px 18px 0 0;
+    transform: translateY(calc(100% - 54px));
+    transition: transform 0.25s ease;
+    z-index: 150;
+  }
+
+  .map-sidebar.active {
+    transform: translateY(0);
+  }
+
+  .mobile-overlay.active {
+    display: block;
+  }
+
+  .map-utilities {
+    bottom: 90px;
+    right: 14px;
+  }
+
+  .ol-popup {
+    min-width: 260px;
+    max-width: 300px;
+    left: -130px;
+    padding: 18px;
+  }
+}

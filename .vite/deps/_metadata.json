@@ -1,0 +1,310 @@
+{
+  "hash": "38056e3a",
+  "configHash": "d051f837",
+  "lockfileHash": "3405e912",
+  "browserHash": "782af5c7",
+  "optimized": {
+    "ol": {
+      "src": "../../node_modules/ol/index.js",
+      "file": "ol.js",
+      "fileHash": "bc8b0bec",
+      "needsInterop": false
+    },
+    "ol/Map.js": {
+      "src": "../../node_modules/ol/Map.js",
+      "file": "ol_Map__js.js",
+      "fileHash": "978de48f",
+      "needsInterop": false
+    },
+    "ol/Overlay.js": {
+      "src": "../../node_modules/ol/Overlay.js",
+      "file": "ol_Overlay__js.js",
+      "fileHash": "5696caaf",
+      "needsInterop": false
+    },
+    "ol/View.js": {
+      "src": "../../node_modules/ol/View.js",
+      "file": "ol_View__js.js",
+      "fileHash": "a3d342b8",
+      "needsInterop": false
+    },
+    "ol/extent.js": {
+      "src": "../../node_modules/ol/extent.js",
+      "file": "ol_extent__js.js",
+      "fileHash": "f718aadc",
+      "needsInterop": false
+    },
+    "ol/format/GeoJSON.js": {
+      "src": "../../node_modules/ol/format/GeoJSON.js",
+      "file": "ol_format_GeoJSON__js.js",
+      "fileHash": "6382b2e2",
+      "needsInterop": false
+    },
+    "ol/layer/Tile": {
+      "src": "../../node_modules/ol/layer/Tile.js",
+      "file": "ol_layer_Tile.js",
+      "fileHash": "04a86c9e",
+      "needsInterop": false
+    },
+    "ol/layer/Tile.js": {
+      "src": "../../node_modules/ol/layer/Tile.js",
+      "file": "ol_layer_Tile__js.js",
+      "fileHash": "abf8587e",
+      "needsInterop": false
+    },
+    "ol/layer/Vector": {
+      "src": "../../node_modules/ol/layer/Vector.js",
+      "file": "ol_layer_Vector.js",
+      "fileHash": "9c2663d5",
+      "needsInterop": false
+    },
+    "ol/layer/Vector.js": {
+      "src": "../../node_modules/ol/layer/Vector.js",
+      "file": "ol_layer_Vector__js.js",
+      "fileHash": "b97a1329",
+      "needsInterop": false
+    },
+    "ol/proj": {
+      "src": "../../node_modules/ol/proj.js",
+      "file": "ol_proj.js",
+      "fileHash": "33ccc7e9",
+      "needsInterop": false
+    },
+    "ol/proj.js": {
+      "src": "../../node_modules/ol/proj.js",
+      "file": "ol_proj__js.js",
+      "fileHash": "33a0662d",
+      "needsInterop": false
+    },
+    "ol/source": {
+      "src": "../../node_modules/ol/source.js",
+      "file": "ol_source.js",
+      "fileHash": "5ac49617",
+      "needsInterop": false
+    },
+    "ol/source/OSM.js": {
+      "src": "../../node_modules/ol/source/OSM.js",
+      "file": "ol_source_OSM__js.js",
+      "fileHash": "0ebcc1ab",
+      "needsInterop": false
+    },
+    "ol/source/Vector": {
+      "src": "../../node_modules/ol/source/Vector.js",
+      "file": "ol_source_Vector.js",
+      "fileHash": "b90a47bb",
+      "needsInterop": false
+    },
+    "ol/source/Vector.js": {
+      "src": "../../node_modules/ol/source/Vector.js",
+      "file": "ol_source_Vector__js.js",
+      "fileHash": "86595abe",
+      "needsInterop": false
+    },
+    "ol/source/XYZ.js": {
+      "src": "../../node_modules/ol/source/XYZ.js",
+      "file": "ol_source_XYZ__js.js",
+      "fileHash": "fbbef894",
+      "needsInterop": false
+    },
+    "ol/style.js": {
+      "src": "../../node_modules/ol/style.js",
+      "file": "ol_style__js.js",
+      "fileHash": "aaa7e884",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "BaseVector-CfsNdaiF": {
+      "file": "BaseVector-CfsNdaiF.js",
+      "isDynamicEntry": false
+    },
+    "Collection-DViiuPV_": {
+      "file": "Collection-DViiuPV_.js",
+      "isDynamicEntry": false
+    },
+    "Feature-CclFINmX": {
+      "file": "Feature-CclFINmX.js",
+      "isDynamicEntry": false
+    },
+    "Icon-DRVUFIa0": {
+      "file": "Icon-DRVUFIa0.js",
+      "isDynamicEntry": false
+    },
+    "Layer-BWEuKMy_": {
+      "file": "Layer-BWEuKMy_.js",
+      "isDynamicEntry": false
+    },
+    "Layer-T-jctcZ0": {
+      "file": "Layer-T-jctcZ0.js",
+      "isDynamicEntry": false
+    },
+    "LineString-CiIVPihz": {
+      "file": "LineString-CiIVPihz.js",
+      "isDynamicEntry": false
+    },
+    "Map-Doh_aNCO": {
+      "file": "Map-Doh_aNCO.js",
+      "isDynamicEntry": false
+    },
+    "MapEventType-BmYFZFS0": {
+      "file": "MapEventType-BmYFZFS0.js",
+      "isDynamicEntry": false
+    },
+    "Object-DCW2lR92": {
+      "file": "Object-DCW2lR92.js",
+      "isDynamicEntry": false
+    },
+    "Polygon-CmUxCsnH": {
+      "file": "Polygon-CmUxCsnH.js",
+      "isDynamicEntry": false
+    },
+    "Source-DWcSo24T": {
+      "file": "Source-DWcSo24T.js",
+      "isDynamicEntry": false
+    },
+    "Tile-DeGnwBPD": {
+      "file": "Tile-DeGnwBPD.js",
+      "isDynamicEntry": false
+    },
+    "TileQueue-BEtu2y85": {
+      "file": "TileQueue-BEtu2y85.js",
+      "isDynamicEntry": false
+    },
+    "TileRange-DC3cm2EC": {
+      "file": "TileRange-DC3cm2EC.js",
+      "isDynamicEntry": false
+    },
+    "TileState-CGIWeHVJ": {
+      "file": "TileState-CGIWeHVJ.js",
+      "isDynamicEntry": false
+    },
+    "Vector-Bd_JBzXx": {
+      "file": "Vector-Bd_JBzXx.js",
+      "isDynamicEntry": false
+    },
+    "Vector-CiDSfYvb": {
+      "file": "Vector-CiDSfYvb.js",
+      "isDynamicEntry": false
+    },
+    "VectorTile-Dfy3xrBl": {
+      "file": "VectorTile-Dfy3xrBl.js",
+      "isDynamicEntry": false
+    },
+    "View-C0XRG2uC": {
+      "file": "View-C0XRG2uC.js",
+      "isDynamicEntry": false
+    },
+    "XYZ-B6p4ltVS": {
+      "file": "XYZ-B6p4ltVS.js",
+      "isDynamicEntry": false
+    },
+    "asserts-gRk-GPA6": {
+      "file": "asserts-gRk-GPA6.js",
+      "isDynamicEntry": false
+    },
+    "basedecoder-Wq4kKObi": {
+      "file": "basedecoder-Wq4kKObi.js",
+      "isDynamicEntry": false
+    },
+    "color-XFwp62RO": {
+      "file": "color-XFwp62RO.js",
+      "isDynamicEntry": false
+    },
+    "contains-DqIevFtL": {
+      "file": "contains-DqIevFtL.js",
+      "isDynamicEntry": false
+    },
+    "css-BFFvV6aI": {
+      "file": "css-BFFvV6aI.js",
+      "isDynamicEntry": false
+    },
+    "decoder-gXbYZNIs": {
+      "file": "decoder-gXbYZNIs.js",
+      "isDynamicEntry": true
+    },
+    "deflate--D88LroD": {
+      "file": "deflate--D88LroD.js",
+      "isDynamicEntry": true
+    },
+    "dom-CA7wKpw3": {
+      "file": "dom-CA7wKpw3.js",
+      "isDynamicEntry": false
+    },
+    "easing-CA9kPaI1": {
+      "file": "easing-CA9kPaI1.js",
+      "isDynamicEntry": false
+    },
+    "extent-Ct519ZT-": {
+      "file": "extent-Ct519ZT-.js",
+      "isDynamicEntry": false
+    },
+    "globals-CBKQINfx": {
+      "file": "globals-CBKQINfx.js",
+      "isDynamicEntry": false
+    },
+    "intersectsextent-Bf7POWne": {
+      "file": "intersectsextent-Bf7POWne.js",
+      "isDynamicEntry": false
+    },
+    "jpeg-B_KJXJLL": {
+      "file": "jpeg-B_KJXJLL.js",
+      "isDynamicEntry": true
+    },
+    "length-B31Bx5sv": {
+      "file": "length-B31Bx5sv.js",
+      "isDynamicEntry": false
+    },
+    "lerc-B_ALGHd8": {
+      "file": "lerc-B_ALGHd8.js",
+      "isDynamicEntry": true
+    },
+    "lzw-D1T738Q8": {
+      "file": "lzw-D1T738Q8.js",
+      "isDynamicEntry": true
+    },
+    "math-BWMiNrVo": {
+      "file": "math-BWMiNrVo.js",
+      "isDynamicEntry": false
+    },
+    "obj-DsDkrhYV": {
+      "file": "obj-DsDkrhYV.js",
+      "isDynamicEntry": false
+    },
+    "orient-yCFkOKBU": {
+      "file": "orient-yCFkOKBU.js",
+      "isDynamicEntry": false
+    },
+    "packbits-CHlXLyoD": {
+      "file": "packbits-CHlXLyoD.js",
+      "isDynamicEntry": true
+    },
+    "pako.esm-DrgZqFsV": {
+      "file": "pako.esm-DrgZqFsV.js",
+      "isDynamicEntry": false
+    },
+    "proj-CpbG7wpi": {
+      "file": "proj-CpbG7wpi.js",
+      "isDynamicEntry": false
+    },
+    "raw-BNzPnVTP": {
+      "file": "raw-BNzPnVTP.js",
+      "isDynamicEntry": true
+    },
+    "rbush-CT_W5I6t": {
+      "file": "rbush-CT_W5I6t.js",
+      "isDynamicEntry": false
+    },
+    "size-DoDW2Qys": {
+      "file": "size-DoDW2Qys.js",
+      "isDynamicEntry": false
+    },
+    "tilecoord-BsHpr1JL": {
+      "file": "tilecoord-BsHpr1JL.js",
+      "isDynamicEntry": false
+    },
+    "webimage-DwVm1b7j": {
+      "file": "webimage-DwVm1b7j.js",
+      "isDynamicEntry": true
+    }
+  }
+}

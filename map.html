@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Peta Persebaran Banjir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="map-page">
+  <div id="navbar-root"></div>
+
+  <div id="map"></div>
+
+  <div class="search-container">
+    <div class="input-group shadow-lg">
+      <span class="input-group-text bg-dark border-0 text-secondary">
+        <i class="ri-search-line"></i>
+      </span>
+      <input type="text" id="searchBox" class="form-control bg-dark border-0 text-light shadow-none" placeholder="Cari Lokasi...">
+      <button class="btn btn-primary" type="button" id="btnSearch"><i class="ri-arrow-right-line"></i></button>
+    </div>
+  </div>
+
+  <button id="mobileMenuBtn" class="btn-mobile-menu shadow-lg">
+    <i class="ri-equalizer-line"></i>
+  </button>
+
+  <div id="mobileOverlay" class="mobile-overlay"></div>
+
+  <div class="map-sidebar" id="sidebarPanel">
+    <div class="mobile-drag-handle"></div>
+
+    <div class="sidebar-header d-flex justify-content-between align-items-center mb-3">
+      <h6 class="text-white text-uppercase fw-bold m-0 gradient-text">
+        <i class="ri-settings-3-fill me-1"></i> Layer & Filter
+      </h6>
+      <button class="btn btn-sm btn-icon text-muted d-lg-none" id="closeMobileMenu">
+        <i class="ri-close-line fs-5"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-scroll-content">
+      <div class="control-card mb-3">
+        <label class="section-label">Data Layer</label>
+        <div class="form-check form-switch mb-2">
+          <input class="form-check-input" type="checkbox" id="polygon">
+          <label class="form-check-label" for="polygon">Area Riau</label>
+        </div>
+        <div class="form-check form-switch mb-2">
+          <input class="form-check-input" type="checkbox" id="pekanbaru" checked>
+          <label class="form-check-label" for="pekanbaru">Area Pekanbaru</label>
+        </div>
+        <div class="form-check form-switch mb-2">
+          <input class="form-check-input" type="checkbox" id="point" checked>
+          <label class="form-check-label" for="point">Titik Banjir</label>
+        </div>
+        <div class="form-check form-switch mb-2">
+          <input class="form-check-input" type="checkbox" id="point2" checked>
+          <label class="form-check-label" for="point2">Titik Genangan</label>
+        </div>
+      </div>
+
+      <div class="control-card mb-3">
+        <label class="section-label">Filter Wilayah</label>
+        <div id="pekanbaruCheckboxes" class="filter-scroll"></div>
+      </div>
+
+      <div class="control-card mb-3">
+        <label class="section-label">Filter Genangan</label>
+        <div id="genanganCheckboxes" class="filter-scroll"></div>
+      </div>
+
+      <div class="control-card mb-3">
+        <label class="section-label">Tampilan Peta</label>
+        <div class="basemap-grid">
+           <input type="radio" name="basemap" id="bm-osm" value="osm" class="btn-check" checked>
+           <label class="btn btn-outline-secondary btn-sm" for="bm-osm">Standar</label>
+
+           <input type="radio" name="basemap" id="bm-sate" value="sate" class="btn-check">
+           <label class="btn btn-outline-secondary btn-sm" for="bm-sate">Satelit</label>
+
+           <input type="radio" name="basemap" id="bm-dark" value="dark" class="btn-check">
+           <label class="btn btn-outline-secondary btn-sm" for="bm-dark">Dark</label>
+        </div>
+        <select id="basemapSelect" style="display:none">
+            <option value="osm">osm</option>
+            <option value="sate">sate</option>
+            <option value="dark">dark</option>
+        </select>
+      </div>
+      
+      <div class="info-box mt-2">
+        <i class="ri-cursor-line me-1"></i> <span id="info">Klik objek pada peta...</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-utilities">
+    <button class="btn btn-glass" id="btnLocate" title="Lokasi Saya">
+      <i class="ri-gps-fill text-primary"></i>
+    </button>
+    <button class="btn btn-glass" id="btnHome" title="Reset View">
+      <i class="ri-home-4-fill"></i>
+    </button>
+  </div>
+
+<div id="popup" class="ol-popup-shell">
+  <div class="ol-popup-card">
+    <button id="popup-closer" class="ol-popup-closer" type="button" aria-label="Tutup popup">
+      <i class="ri-close-line"></i>
+    </button>
+    <div id="popup-content"></div>
+  </div>
+</div>
+
+  <script type="module" src="./main.js"></script>
+  <script type="module" src="/components/Navbar.js"></script>
+  <script>
+  (() => {
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebarPanel');
+    const overlay = document.getElementById('mobileOverlay');
+    const closeBtn = document.getElementById('closeMobileMenu');
+    const radios = document.querySelectorAll('input[name="basemap"]');
+    const select = document.getElementById('basemapSelect');
+
+    function isPanelOpen() {
+      return sidebar && sidebar.classList.contains('active');
+    }
+
+    function syncMapSize() {
+      setTimeout(() => {
+        if (window.floodMap && typeof window.floodMap.updateSize === 'function') {
+          window.floodMap.updateSize();
+        }
+      }, 120);
+    }
+
+    function openMenu() {
+      if (!sidebar || !overlay) return;
+
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+      document.body.classList.add('map-panel-open');
+
+      if (mobileBtn) {
+        mobileBtn.setAttribute('aria-expanded', 'true');
+      }
+
+      syncMapSize();
+    }
+
+    function closeMenu() {
+      if (!sidebar || !overlay) return;
+
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.classList.remove('map-panel-open');
+
+      if (mobileBtn) {
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      syncMapSize();
+    }
+
+    function toggleMenu() {
+      if (isPanelOpen()) closeMenu();
+      else openMenu();
+    }
+
+    if (mobileBtn) {
+      mobileBtn.setAttribute('aria-label', 'Buka panel layer dan filter');
+      mobileBtn.setAttribute('aria-expanded', 'false');
+      mobileBtn.addEventListener('click', toggleMenu);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeMenu);
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    radios.forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        if (!select) return;
+        select.value = event.target.value;
+        select.dispatchEvent(new Event('change'));
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) {
+        closeMenu();
+      }
+
+      syncMapSize();
+    });
+
+    window.addEventListener('orientationchange', () => {
+      closeMenu();
+      syncMapSize();
+    });
+  })();
+</script>
+</body>
+</html>

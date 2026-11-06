@@ -13,7 +13,7 @@
     "ol": "^10.7.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.13",
+    "@tailwindcss/vite": "^4.3.4",
     "tailwindcss": "^4.1.13",
     "vite": "^8.2.2"
   }
